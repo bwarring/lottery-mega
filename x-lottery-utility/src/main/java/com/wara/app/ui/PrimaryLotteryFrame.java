@@ -1,6 +1,7 @@
 package com.wara.app.ui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -92,18 +93,50 @@ public class PrimaryLotteryFrame extends JFrame {
         constraints.gridx = 1;
         newPanel.add(pathTextField, constraints);
         
+        //****
+        GridBagConstraints labelConstraints = new GridBagConstraints();
+        labelConstraints.insets = new Insets(10, 10, 10, 10);
+        
+        JPanel numberSelectPanel = new JPanel(new GridLayout(1,2,20,10));
+        JLabel labelSelectNumber = new JLabel("Selected First Number: ");
+        labelConstraints.gridx = 0;
+        labelConstraints.gridy = 1;
+        labelConstraints.gridwidth = 1;
+        labelConstraints.anchor = GridBagConstraints.WEST;
+        numberSelectPanel.add(labelSelectNumber, labelConstraints);
+        
+        GridBagConstraints numberConstraints = new GridBagConstraints();
+        numberConstraints.insets = new Insets(10, 10, 10, 10);
+        JTextField numberTextfield = new JTextField("2");
+        numberTextfield.setPreferredSize(new Dimension(1,1));
+        
+        numberConstraints.gridx = 1;
+        numberConstraints.gridy = 1;
+        //numberConstraints.gridwidth = 1;
+        //numberConstraints.anchor = GridBagConstraints.WEST;
+        numberSelectPanel.add(numberTextfield, numberConstraints);
+        
+        GridBagConstraints numberSelectPanelConstraints = new GridBagConstraints();
+        numberSelectPanelConstraints.insets = new Insets(10, 10, 10, 10);
+        numberSelectPanelConstraints.gridx = 0;
+        numberSelectPanelConstraints.gridy = 2;
+        numberSelectPanelConstraints.gridwidth = 3;
+        numberSelectPanelConstraints.anchor = GridBagConstraints.WEST;
+        newPanel.add(numberSelectPanel, numberSelectPanelConstraints);
+        //****
+        
         hdgraphicsCheckbox = new JCheckBox("HD Graphics - Select if running 4KHD graphic card.", true);
         hdgraphicsCheckbox.addItemListener(new CheckBoxListener());
         setSize(300,300);
         constraints.gridx = 0;
-        constraints.gridy = 1;
+        constraints.gridy = 3;
         constraints.gridwidth = 2;
         constraints.anchor = GridBagConstraints.WEST;
         newPanel.add(hdgraphicsCheckbox, constraints);
 
         GridBagConstraints constraintsError = new GridBagConstraints();
         constraintsError.gridx = 0;
-        constraintsError.gridy = 4;
+        constraintsError.gridy = 6;
         constraintsError.gridwidth = 2;
         newPanel.add(labelError, constraintsError);
         labelError.setForeground(Color.RED);
@@ -148,7 +181,7 @@ public class PrimaryLotteryFrame extends JFrame {
         
         GridBagConstraints bpContrainst4 = new GridBagConstraints();
         bpContrainst4.gridx = 0;
-        bpContrainst4.gridy = 3;
+        bpContrainst4.gridy = 4;
         bpContrainst4.gridwidth = 2;
         bpContrainst4.anchor = GridBagConstraints.CENTER;
         newPanel.add(buttonPanel, bpContrainst4);
